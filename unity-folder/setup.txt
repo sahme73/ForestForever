@@ -1,0 +1,42 @@
+==================================================
+
+Final Project Setup (for teammates)
+By: Safeer Ahmed
+
+==================================================
+
+		===UNITY SETUP===
+
+>Create Unity student account (www.unity3d.com)
+>Download Unity Hub V3
+>Login using student account
+>Editor version: 2020.3.22f1 (<6gb)
+>Skip license activation
+>Click "Manage Licenses"
+>Add student license from email
+
+>When opening a script in VStudio:
+>Download C# extension and .NET 5.0 SDK
+
+==================================================
+
+		===GIT CLONING===
+
+>Open VM folder (CS128 VM Environment)
+>Open terminal
+>'git clone (repo link)'
+>In Unity: click 'Open Project'
+>Locate file from VM folder
+>Project from repository should be loaded
+
+==================================================
+
+		===GIT PUSHING===
+
+>In repository folder (CS128 VM Environment)
+>'git commit -a'
+>Type changes made
+>'git push'
+>Changes should be pushed to group repository
+
+==================================================
