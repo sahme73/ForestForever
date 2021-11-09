@@ -15,8 +15,13 @@ By: Safeer Ahmed
 >Click "Manage Licenses"
 >Add student license from email
 
->When opening a script in VStudio:
->Download C# extension and .NET 5.0 SDK
+Optional: (VStudio Code Add-ons)
+>When opening a script in VStudio Code:
+>Download C# extension
+>Download .NET 5.0 SDK (or newer)
+>Download .NET Framework 4.7.1 (or newer)
+>Download Unity Code Snippets extension
+>Download Unity Debugger extension
 
 ==================================================
 
