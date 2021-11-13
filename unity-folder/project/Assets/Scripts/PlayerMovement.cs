@@ -5,9 +5,11 @@ using UnityEngine;
   /*This script is a basic implementation of movement in a 2D space.*/
 
 public class PlayerMovement : MonoBehaviour {
+  // Public Variables:
   public Rigidbody2D player; // rigidbody for the current player object
   public float speed = 10.0f; // the adjustable speed of the player
 
+  // Private Variables:
   private Vector2 movement; // the 2d vector of movement velocity (includes direction)
 
   // Start is called before the first frame update
