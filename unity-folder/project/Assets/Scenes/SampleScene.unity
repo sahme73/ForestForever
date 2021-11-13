@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 1000729848}
   - component: {fileID: 1000729847}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 839f0571e0f29544fadb3b4ca7f63cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1000729848}
   speed: 10
 --- !u!50 &1000729848
 Rigidbody2D:
