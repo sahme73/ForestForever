@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="4" result="Passed" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2021-11-13 21:35:20Z" end-time="2021-11-13 21:35:20Z" duration="0.0539215">
+  <test-suite type="TestSuite" id="1010" name="project" fullname="project" runstate="Runnable" testcasecount="4" result="Passed" start-time="2021-11-13 21:35:20Z" end-time="2021-11-13 21:35:20Z" duration="0.053922" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties />
+    <test-suite type="Assembly" id="1016" name="EditMode.dll" fullname="C:/Users/safeer/cs128env/src/fp/final-project-segfaultcoredumped/unity-folder/project/Library/ScriptAssemblies/EditMode.dll" runstate="Runnable" testcasecount="4" result="Passed" start-time="2021-11-13 21:35:20Z" end-time="2021-11-13 21:35:20Z" duration="0.033632" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="34084" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+      </properties>
+      <test-suite type="TestFixture" id="1011" name="MovementTest" fullname="MovementTest" classname="MovementTest" runstate="Runnable" testcasecount="4" result="Passed" start-time="2021-11-13 21:35:20Z" end-time="2021-11-13 21:35:20Z" duration="0.032151" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1013" name="DownwardChange" fullname="MovementTest.DownwardChange" methodname="DownwardChange" classname="MovementTest" runstate="Runnable" seed="787813251" result="Passed" start-time="2021-11-13 21:35:20Z" end-time="2021-11-13 21:35:20Z" duration="0.015942" asserts="0">
+          <properties />
+        </test-case>
+        <test-case id="1015" name="LeftwardChange" fullname="MovementTest.LeftwardChange" methodname="LeftwardChange" classname="MovementTest" runstate="Runnable" seed="845138105" result="Passed" start-time="2021-11-13 21:35:20Z" end-time="2021-11-13 21:35:20Z" duration="0.000708" asserts="0">
+          <properties />
+        </test-case>
+        <test-case id="1014" name="RightwardChange" fullname="MovementTest.RightwardChange" methodname="RightwardChange" classname="MovementTest" runstate="Runnable" seed="511244563" result="Passed" start-time="2021-11-13 21:35:20Z" end-time="2021-11-13 21:35:20Z" duration="0.000645" asserts="0">
+          <properties />
+        </test-case>
+        <test-case id="1012" name="UpwardChange" fullname="MovementTest.UpwardChange" methodname="UpwardChange" classname="MovementTest" runstate="Runnable" seed="2007270258" result="Passed" start-time="2021-11-13 21:35:20Z" end-time="2021-11-13 21:35:20Z" duration="0.000603" asserts="0">
+          <properties />
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

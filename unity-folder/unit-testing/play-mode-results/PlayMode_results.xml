@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="4" result="Passed" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2021-11-13 21:52:35Z" end-time="2021-11-13 21:52:35Z" duration="0.0682148">
+  <test-suite type="TestSuite" id="1000" name="project" fullname="project" runstate="Runnable" testcasecount="4" result="Passed" start-time="2021-11-13 21:52:35Z" end-time="2021-11-13 21:52:35Z" duration="0.068215" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties />
+    <test-suite type="Assembly" id="1006" name="PlayMode.dll" fullname="C:/Users/safeer/cs128env/src/fp/final-project-segfaultcoredumped/unity-folder/project/Library/ScriptAssemblies/PlayMode.dll" runstate="Runnable" testcasecount="4" result="Passed" start-time="2021-11-13 21:52:35Z" end-time="2021-11-13 21:52:35Z" duration="0.054440" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="42172" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+      </properties>
+      <test-suite type="TestFixture" id="1001" name="IsMoving" fullname="IsMoving" classname="IsMoving" runstate="Runnable" testcasecount="4" result="Passed" start-time="2021-11-13 21:52:35Z" end-time="2021-11-13 21:52:35Z" duration="0.048280" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1003" name="MoveDown" fullname="IsMoving.MoveDown" methodname="MoveDown" classname="IsMoving" runstate="Runnable" seed="710015566" result="Passed" start-time="2021-11-13 21:52:35Z" end-time="2021-11-13 21:52:35Z" duration="0.020594" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+          </properties>
+        </test-case>
+        <test-case id="1005" name="MoveLeft" fullname="IsMoving.MoveLeft" methodname="MoveLeft" classname="IsMoving" runstate="Runnable" seed="2109713470" result="Passed" start-time="2021-11-13 21:52:35Z" end-time="2021-11-13 21:52:35Z" duration="0.005213" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+          </properties>
+        </test-case>
+        <test-case id="1004" name="MoveRight" fullname="IsMoving.MoveRight" methodname="MoveRight" classname="IsMoving" runstate="Runnable" seed="880786172" result="Passed" start-time="2021-11-13 21:52:35Z" end-time="2021-11-13 21:52:35Z" duration="0.004712" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+          </properties>
+        </test-case>
+        <test-case id="1002" name="MoveUp" fullname="IsMoving.MoveUp" methodname="MoveUp" classname="IsMoving" runstate="Runnable" seed="169120944" result="Passed" start-time="2021-11-13 21:52:35Z" end-time="2021-11-13 21:52:35Z" duration="0.004836" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+          </properties>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
