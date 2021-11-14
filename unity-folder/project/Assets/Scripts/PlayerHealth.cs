@@ -21,4 +21,8 @@ public class PlayerHealth : MonoBehaviour
         }
 
     }
+
+    void OnGUI() {
+        GUI.Label(new Rect(10, 10, 1500, 100), "Health: " + health.ToString());
+    }
 }
