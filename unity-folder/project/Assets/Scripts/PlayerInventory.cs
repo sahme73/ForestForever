@@ -24,7 +24,6 @@ Craft(string)               Craft one product string if possible;
 */
 public class PlayerInventory : MonoBehaviour
 {
-    
   //private fields
   private Dictionary<string, int> items = new Dictionary<string, int>();
   private Dictionary<
@@ -86,6 +85,7 @@ public class PlayerInventory : MonoBehaviour
     int hashValue = 0;
     foreach(var pair in items) {
       toPrint += pair.Key + ":" + Convert.ToString(pair.Value) + ":";
+      hashValue = HashStringFunction(hashValue, pair.Key);
       hashValue = HashFunction(hashValue, pair.Value);
     }
     return Convert.ToString(hashValue) + ":" + toPrint;
@@ -103,6 +103,7 @@ public class PlayerInventory : MonoBehaviour
       next = hash.IndexOf(":");
       string item = hash.Substring(0, next);
       hash = hash.Substring(next + 1);
+      attempedHashValue = HashStringFunction(attempedHashValue, item);
       
       next = hash.IndexOf(":");
       int number = Int32.Parse(hash.Substring(0, next));
@@ -175,8 +176,17 @@ public class PlayerInventory : MonoBehaviour
     });
   }
   
-  private int HashFunction(int hash, int input){
-    return (hash * 7877 + input) % 5303;
+
+
+  private int HashStringFunction(int hash, string input){
+    int newHash = hash;
+    foreach(var ch in input){
+      newHash = HashFunction(newHash, (int)(ch));
+    }      
+    return newHash;
   }
   
+  private int HashFunction(int hash, int input){
+    return (hash * 7877 + input * input) % 5303;
+  }
 }
