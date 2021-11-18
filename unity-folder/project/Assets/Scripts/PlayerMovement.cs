@@ -7,7 +7,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
   // Public Variables:
   public Rigidbody2D player; // rigidbody for the current player object
-  public float speed = 10.0f; // the adjustable speed of the player
 
   // Private Variables:
   private Vector2 movement; // the 2d vector of movement velocity (includes direction)
@@ -34,7 +33,7 @@ public class PlayerMovement : MonoBehaviour {
   }
 
   public Vector2 MoveCalculation() {
-    return (player.position + movement * speed * Time.fixedDeltaTime);
+    return (player.position + movement * player.GetComponent<PlayerStats>().GetSpeed() * Time.fixedDeltaTime);
   }
 
   public void SetMovement(float x, float y) {

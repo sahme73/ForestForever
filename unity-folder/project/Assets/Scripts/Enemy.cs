@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
     private void OnCollisionStay2D(Collision2D other) {
         if (other.gameObject.tag == "Player") {
             if (basicSpeed <= canAttack) {
-                other.gameObject.GetComponent<PlayerHealth>().UpdateHealth(-basicDamage);
+                other.gameObject.GetComponent<PlayerStats>().UpdateHealth(-basicDamage);
                 canAttack = 0f;
             } else {
                 canAttack += Time.deltaTime;

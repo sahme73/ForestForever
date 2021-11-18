@@ -20,7 +20,7 @@ public class MovementTest
     // initializing dummy PlayerMovement (pm) object:
     pm.player.position = Vector2.zero;
     pm.SetMovement(0.0f, 1.0f); // upward input
-    pm.speed = 10f;
+    pm.GetComponent<PlayerStats>().SetSpeed(10.0f);
     pm.Move();
     
     // calculations:
@@ -53,7 +53,7 @@ public class MovementTest
     // initializing dummy PlayerMovement (pm) object:
     pm.player.position = Vector2.zero;
     pm.SetMovement(0.0f, -1.0f); // upward input
-    pm.speed = 10f;
+    pm.GetComponent<PlayerStats>().SetSpeed(10.0f);
     pm.Move();
     
     // calculations:
@@ -86,7 +86,7 @@ public class MovementTest
     // initializing dummy PlayerMovement (pm) object:
     pm.player.position = Vector2.zero;
     pm.SetMovement(1.0f, 0.0f); // upward input
-    pm.speed = 10f;
+    pm.GetComponent<PlayerStats>().SetSpeed(10.0f);
     pm.Move();
     
     // calculations:
@@ -119,7 +119,7 @@ public class MovementTest
     // initializing dummy PlayerMovement (pm) object:
     pm.player.position = Vector2.zero;
     pm.SetMovement(-1.0f, 0.0f); // upward input
-    pm.speed = 10f;
+    pm.GetComponent<PlayerStats>().SetSpeed(10.0f);
     pm.Move();
     
     // calculations:
