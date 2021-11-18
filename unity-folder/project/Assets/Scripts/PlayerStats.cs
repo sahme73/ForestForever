@@ -23,7 +23,7 @@ public class PlayerStats : MonoBehaviour
         health += mod;
         if (health > maxHealth) {
             health = maxHealth;
-        } else if (health < 0.0f) {
+        } else if (health <= 0.0f) {
             health = 0.0f;
             Respawn();
         }
