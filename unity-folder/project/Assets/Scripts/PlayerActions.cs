@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class PlayerActions : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Collider2D player;
+    public Collider2D tree;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    //public PlayerInventory inventory;
+
+    private void Update() {
+        if (player.IsTouching(tree)) {
+            if (Input.GetKeyDown("space")) {
+                Debug.Log("+1 Wood!");
+                player.GetComponent<PlayerInventory>().AddItem("Wood");
+            }
+        }
+
+        if (Input.GetKeyDown("e")) {
+            Debug.Log(player.GetComponent<PlayerInventory>().ToString());
+        }
     }
 }
