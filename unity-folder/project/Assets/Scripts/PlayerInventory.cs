@@ -35,7 +35,7 @@ public class PlayerInventory : MonoBehaviour
     Dictionary<string, int>
   > ();
   
-  public CraftingInventory(){
+  public void CraftingInventory(){
     AddDefaultCrafts();
   }
   
@@ -91,7 +91,7 @@ public class PlayerInventory : MonoBehaviour
     return Convert.ToString(hashValue) + ":" + toPrint;
   }
   
-  public CraftingInventory(string hash){
+  public void CraftingInventory(string hash){
     AddDefaultCrafts();
     
     int next = hash.IndexOf(":");
