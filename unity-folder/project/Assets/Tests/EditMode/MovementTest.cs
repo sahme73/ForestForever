@@ -13,6 +13,7 @@ public class MovementTest
     // dummy object instantiation:
     GameObject temp = new GameObject("temp");
     temp.AddComponent<PlayerMovement>();
+    temp.AddComponent<PlayerStats>();
     temp.AddComponent<Rigidbody2D>();
     PlayerMovement pm = temp.GetComponent<PlayerMovement>();
     pm.player = temp.GetComponent<Rigidbody2D>();
@@ -46,6 +47,7 @@ public class MovementTest
     // dummy object instantiation:
     GameObject temp = new GameObject("temp");
     temp.AddComponent<PlayerMovement>();
+    temp.AddComponent<PlayerStats>();
     temp.AddComponent<Rigidbody2D>();
     PlayerMovement pm = temp.GetComponent<PlayerMovement>();
     pm.player = temp.GetComponent<Rigidbody2D>();
@@ -79,6 +81,7 @@ public class MovementTest
     // dummy object instantiation:
     GameObject temp = new GameObject("temp");
     temp.AddComponent<PlayerMovement>();
+    temp.AddComponent<PlayerStats>();
     temp.AddComponent<Rigidbody2D>();
     PlayerMovement pm = temp.GetComponent<PlayerMovement>();
     pm.player = temp.GetComponent<Rigidbody2D>();
@@ -112,6 +115,7 @@ public class MovementTest
     // dummy object instantiation:
     GameObject temp = new GameObject("temp");
     temp.AddComponent<PlayerMovement>();
+    temp.AddComponent<PlayerStats>();
     temp.AddComponent<Rigidbody2D>();
     PlayerMovement pm = temp.GetComponent<PlayerMovement>();
     pm.player = temp.GetComponent<Rigidbody2D>();

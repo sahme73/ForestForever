@@ -29,6 +29,10 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public void Instantiate() {
+        Start();
+    }
+
     private void Respawn() {
         SetSpeed(0.0f);
         Debug.Log("YOU DIED");
