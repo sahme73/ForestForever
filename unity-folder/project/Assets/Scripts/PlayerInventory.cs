@@ -6,7 +6,8 @@ using UnityEngine;
 
 /*
 Interface: 
-CraftingInventory(string):  Create an inventory initialized with crafts
+CraftingInventory():        Create an empty inventory with crafts
+CraftingInventory(string):  Create a hased inventory initialized with crafts
 
 ToString():                 Print to Console
 AddItem(string):            Add 1 item of name string
@@ -21,6 +22,7 @@ CraftingInventory(string):  Create an inventory based on a save hash
 AddCrafting(string, dict)   Add recipe dict for product string
 Craft(string)               Craft one product string if possible; 
                             returns T/F if successfully crafted
+GetCraftings():             Get the nested dictionary of crafts and recipes
 */
 public class PlayerInventory : MonoBehaviour
 {
@@ -131,7 +133,10 @@ public class PlayerInventory : MonoBehaviour
     AddItem(product);
     return true;
   }    
-  
+  public Dictionary<string, Dictionary<string, int>> GetCraftings(){
+    return craftings;
+  }
+
   //private helper functions
   private static string DictToString(Dictionary<string, int> dict){
     string toPrint = "";
@@ -163,20 +168,84 @@ public class PlayerInventory : MonoBehaviour
   }
   
   private void AddDefaultCrafts(){
+    
+    //tinder is a basic conversion for campfires
     AddCrafting(
-    "Axe", 
+    "Tinder", 
     new Dictionary<string, int>(){
-      {"Wood", 1}, 
-      {"Stone", 3}
+      {"Wood", 1}
+    });
+    
+    //campfires allow you to make different wood types
+    AddCrafting(
+    "Small Campfire", 
+    new Dictionary<string, int>(){
+      {"Tinder", 10},
+      {"Wood", 10} 
     });
     AddCrafting(
-    "Campfire", 
+    "Medium Campfire", 
     new Dictionary<string, int>(){
-      {"Wood", 10}, 
+      {"Tinder", 10},
+      {"Wood", 100} 
     });
+    AddCrafting(
+    "Large Campfire", 
+    new Dictionary<string, int>(){
+      {"Tinder", 10},
+      {"Wood", 500} 
+    });
+    
+    //better wood allows for better crafts
+    AddCrafting(
+    "Smoke-Treated Wood", 
+    new Dictionary<string, int>(){
+      {"Small Campfire", 1},
+      {"Wood", 10} 
+    });
+    AddCrafting(
+    "Tempered Wood", 
+    new Dictionary<string, int>(){
+      {"Medium Campfire", 1},
+      {"Wood", 50} 
+    });
+    AddCrafting(
+    "Fire-Hardened Wood", 
+    new Dictionary<string, int>(){
+      {"Large Campfire", 1},
+      {"Wood", 100}
+    });
+    
+    //better axes to cut faster
+    //multiple purchases?
+    AddCrafting(
+    "Axe Reinforcement", 
+    new Dictionary<string, int>(){
+      {"Smoke-Treated Wood", 1}
+    });
+    // base upgrade
+    AddCrafting(
+    "Powerful Axe", 
+    new Dictionary<string, int>(){
+      {"Tempered Wood", 1},
+      {"Wood", 10}
+    });
+    AddCrafting(
+    "Razor-edged Axe", 
+    new Dictionary<string, int>(){
+      {"Fire-Hardened Wood", 1},
+      {"Wood", 50}
+    });
+    
+    //utility
+    //running faster
+    AddCrafting(
+    "Boots Reinforcement", 
+    new Dictionary<string, int>(){
+      {"Smoke-Treated Wood", 5},
+      {"Wood", 10}
+    }); 
   }
-  
-
 
   private int HashStringFunction(int hash, string input){
     int newHash = hash;
