@@ -10,6 +10,11 @@ public class PlayerStats : MonoBehaviour
     private float speed = 0.0f;
     public float setSpeed = 10.0f;
     public float setMaxHealth = 100.0f;
+    public float swingSpeed = 1.0f;
+
+    public float regenPerSecond = 1.0f;
+
+    public float damage = 5.0f;
 
     private void Start() {
         //intializing variables
@@ -17,6 +22,16 @@ public class PlayerStats : MonoBehaviour
         speed = setSpeed;
 
         health = maxHealth;
+    }
+
+    private void Update() {
+        if (health < maxHealth && !(IsInvoking())) {
+            Invoke("Regen", 1.0f);
+        }
+    }
+
+    private void Regen() {
+        health += regenPerSecond;
     }
 
     public void UpdateHealth(float mod) {
