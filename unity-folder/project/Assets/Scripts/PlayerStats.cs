@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : MonoBehaviour, PlayerInterface
 {
-    private float health = 0.0f;
+    private float currentHealth = 0.0f;
     private float maxHealth = 100.0f;
 
     private float speed = 0.0f;
@@ -12,40 +12,40 @@ public class PlayerStats : MonoBehaviour
     public float setMaxHealth = 100.0f;
     public float swingSpeed = 1.0f;
 
-    public float regenPerSecond = 1.0f;
+    public float regenPerSecond = 1.0f; //rps
 
-    public float damage = 5.0f;
+    public float damage = 5.0f; //dmg
 
     private void Start() {
         //intializing variables
         maxHealth = setMaxHealth;
         speed = setSpeed;
 
-        health = maxHealth;
+        currentHealth = maxHealth;
     }
 
     private void Update() {
-        if (health < maxHealth && !(IsInvoking())) {
+        if (currentHealth < maxHealth && !(IsInvoking())) {
             Invoke("Regen", 1.0f);
-        }
-    }
-
-    private void Regen() {
-        health += regenPerSecond;
-    }
-
-    public void UpdateHealth(float mod) {
-        health += mod;
-        if (health > maxHealth) {
-            health = maxHealth;
-        } else if (health <= 0.0f) {
-            health = 0.0f;
-            Respawn();
         }
     }
 
     public void Instantiate() {
         Start();
+    }
+
+    public void UpdateHealth(float mod) {
+        currentHealth += mod;
+        if (currentHealth > maxHealth) {
+            currentHealth = maxHealth;
+        } else if (currentHealth <= 0.0f) {
+            currentHealth = 0.0f;
+            Respawn();
+        }
+    }
+
+    private void Regen() {
+        currentHealth += regenPerSecond;
     }
 
     private void Respawn() {
@@ -57,26 +57,71 @@ public class PlayerStats : MonoBehaviour
 
     private void RespawnComplete() {
         SetSpeed(setSpeed);
-        health = maxHealth;
+        currentHealth = maxHealth;
     }
 
-    public void SetSpeed(float newSpeed) {
-        speed = newSpeed;
+    void OnGUI() {
+        GUI.Label(new Rect(16, 14, 1500, 100), "Health: " + currentHealth.ToString());
+    }
+
+    ///////////////////////////////////////////////
+    // PlayerInterface Function Implementations: //
+    ///////////////////////////////////////////////
+
+    public Vector2 GetPosition() {
+        return GetComponent<Rigidbody2D>().position;
+    }
+
+    public void SetPosition(Vector2 position) {
+        GetComponent<Rigidbody2D>().position = position;
     }
 
     public float GetSpeed() {
         return speed;
     }
 
+    public void SetSpeed(float newSpeed) {
+        speed = newSpeed;
+    }
+
     public float GetMaxHealth() {
         return maxHealth;
     }
 
-    public float GetCurrentHealth() {
-        return health;
+    public void SetMaxHealth(float newMaxHealth) {
+        maxHealth = newMaxHealth;
     }
 
-    void OnGUI() {
-        GUI.Label(new Rect(16, 14, 1500, 100), "Health: " + health.ToString());
+    public float GetCurrentHealth() {
+        return currentHealth;
     }
+
+    public void SetCurrentHealth(float newCurrentHealth) {
+        currentHealth = newCurrentHealth;
+    }
+
+    public float GetSwingSpeed() {
+        return swingSpeed;
+    }
+
+    public void SetSwingSpeed(float newSwingSpeed) {
+        swingSpeed = newSwingSpeed;
+    }
+
+    public float GetRPS() {
+        return regenPerSecond;
+    }
+
+    public void SetRPS(float newRPS) {
+        regenPerSecond = newRPS;
+    }
+
+    public float GetDMG() {
+        return damage;
+    }
+
+    public void SetDMG(float newDMG) {
+        damage = newDMG;
+    }
+
 }
