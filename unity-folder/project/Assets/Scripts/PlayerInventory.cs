@@ -24,7 +24,7 @@ Craft(string)               Craft one product string if possible;
                             returns T/F if successfully crafted
 GetCraftings():             Get the nested dictionary of crafts and recipes
 */
-public class PlayerInventory : MonoBehaviour
+public class PlayerInventory : MonoBehaviour, InventoryInterface
 {
   //private fields
   private Dictionary<string, int> items = new Dictionary<string, int>();
@@ -77,7 +77,7 @@ public class PlayerInventory : MonoBehaviour
     return items[item];
   }
 
-  public Dictionary<string, int> GetItems(){
+  public Dictionary<string, int> GetItems() {
     return items;
   }
 
@@ -257,5 +257,9 @@ public class PlayerInventory : MonoBehaviour
   
   private int HashFunction(int hash, int input){
     return (hash * 7877 + input * input) % 5303;
+  }
+
+  public void EmptyInventory() {
+    items = new Dictionary<string, int>();
   }
 }

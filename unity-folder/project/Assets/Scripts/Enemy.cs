@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, EnemyInterface
 {
     public float speed = 3f;
     public float health = 30.0f;
@@ -55,5 +55,44 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float dmg) {
       health -= dmg;
+      Debug.Log(GetScale().x + " " + GetScale().y + " " + GetScale().z);
+    }
+
+    ///////////////////////////////////////////////
+    // Enemy Interface Function Implementations: //
+    ///////////////////////////////////////////////
+
+    public Vector2 GetPosition() {
+      return transform.position;
+    }
+
+    public void SetPosition(Vector2 newPosition) {
+      transform.position = newPosition;
+    }
+  
+    public Vector3 GetScale() {
+      return transform.localScale;
+    }
+
+    public void SetScale(Vector3 newScale) {
+      transform.localScale = newScale;
+    }
+    public Color GetColor() {
+      return GetComponent<SpriteRenderer>().color;
+    }
+    public void SetColor(Color setColor) {
+      GetComponent<SpriteRenderer>().color = setColor;
+    }
+    public float GetSpeed() {
+      return speed;
+    }
+    public void SetSpeed(float newSpeed) {
+      speed = newSpeed;
+    }
+    public float GetHealth() {
+      return health;
+    }
+    public void SetHealth(float newHealth) {
+      health = newHealth;
     }
 }

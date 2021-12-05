@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 5632835336607801578}
   m_Layer: 0
   m_Name: Tree
-  m_TagString: Tree
+  m_TagString: TreeParent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 5632835337299320700}
   - component: {fileID: 5508674155457970130}
   - component: {fileID: 7388197491607002444}
+  - component: {fileID: 1650113788441334054}
   m_Layer: 0
   m_Name: TreeObject
   m_TagString: Tree
@@ -234,7 +235,7 @@ MonoBehaviour:
   - {x: -0.04997226, y: -0.1495638, z: 0}
   m_ShapePathHash: 298463016
   m_Mesh: {fileID: 0}
-  m_InstanceId: 68388
+  m_InstanceId: 54886
 --- !u!114 &5508674155457970130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +289,27 @@ PolygonCollider2D:
       - {x: 0.0014314128, y: 0.037286974}
       - {x: -0.030864343, y: -0.02983316}
       - {x: -0.03007647, y: -0.13991225}
+--- !u!50 &1650113788441334054
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5632835337299320703}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6351102453674716294
 GameObject:
   m_ObjectHideFlags: 0
