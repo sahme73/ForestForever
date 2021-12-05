@@ -14,4 +14,8 @@ public interface EnemyInterface {
   public void SetSpeed(float newSpeed);
   public float GetHealth();
   public void SetHealth(float newHealth);
+  public float GetBasicDMG();
+  public void SetBasicDMG(float newBasicDMG);
+  public float GetBasicSpeed();
+  public void SetBasicSpeed(float newBasicSpeed);
 }

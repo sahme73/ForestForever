@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
 
 public class GameHandler : MonoBehaviour {
   [SerializeField] private GameObject playerGameObject;
@@ -142,13 +141,17 @@ public class GameHandler : MonoBehaviour {
       Color enemyColor = enemyI.GetColor();
       float enemySpeed = enemyI.GetSpeed();
       float enemyHealth = enemyI.GetHealth();
+      float enemyBasicDMG = enemyI.GetBasicDMG();
+      float enemyBasicSpeed = enemyI.GetBasicSpeed();
 
       SaveObjectEnemy saveObjectEnemy = new SaveObjectEnemy {
         enemyPosition = enemyPosition,
         enemyScale = enemyScale,
         enemyColor = enemyColor,
         enemySpeed = enemySpeed,
-        enemyHealth = enemyHealth
+        enemyHealth = enemyHealth,
+        enemyBasicDMG = enemyBasicDMG,
+        enemyBasicSpeed = enemyBasicSpeed
       };
 
       enemiesJson += "ENEMY" + JsonUtility.ToJson(saveObjectEnemy);
@@ -198,8 +201,9 @@ public class GameHandler : MonoBehaviour {
       foreach (string s in eachTree) {
         SaveObjectTree saveObjectTree = JsonUtility.FromJson<SaveObjectTree>(s);
 
-        UnityEngine.Object treePrefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Tree.prefab", typeof(GameObject));
+        GameObject treePrefab = GameObject.FindGameObjectWithTag("TreeOrigin");
         GameObject clone = Instantiate(treePrefab, saveObjectTree.treePosition, Quaternion.identity) as GameObject;
+        clone.tag = "Tree";
         TreeInterface treeI = clone.GetComponentInChildren<TreeInterface>();
 
         treeI.SetPosition(saveObjectTree.treePosition);
@@ -255,8 +259,9 @@ public class GameHandler : MonoBehaviour {
       foreach (string s in eachEnemy) {
         SaveObjectEnemy saveObjectEnemy = JsonUtility.FromJson<SaveObjectEnemy>(s);
 
-        UnityEngine.Object enemyPrefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Enemy.prefab", typeof(GameObject));
+        GameObject enemyPrefab = GameObject.FindGameObjectWithTag("EnemyOrigin");
         GameObject clone = Instantiate(enemyPrefab, saveObjectEnemy.enemyPosition, Quaternion.identity) as GameObject;
+        clone.tag = "Enemy";
         EnemyInterface enemyI = clone.GetComponent<EnemyInterface>();
 
         enemyI.SetPosition(saveObjectEnemy.enemyPosition);
@@ -264,6 +269,8 @@ public class GameHandler : MonoBehaviour {
         enemyI.SetColor(saveObjectEnemy.enemyColor);
         enemyI.SetSpeed(saveObjectEnemy.enemySpeed);
         enemyI.SetHealth(saveObjectEnemy.enemyHealth);
+        enemyI.SetBasicDMG(saveObjectEnemy.enemyBasicDMG);
+        enemyI.SetBasicSpeed(saveObjectEnemy.enemyBasicSpeed);
       }
       
       Debug.Log("Enemy Save Loaded!");
@@ -299,6 +306,8 @@ public class GameHandler : MonoBehaviour {
     public Color enemyColor;
     public float enemySpeed;
     public float enemyHealth;
+    public float enemyBasicDMG;
+    public float enemyBasicSpeed;
   }
 
 }

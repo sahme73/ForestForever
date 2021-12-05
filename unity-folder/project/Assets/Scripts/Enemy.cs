@@ -95,4 +95,16 @@ public class Enemy : MonoBehaviour, EnemyInterface
     public void SetHealth(float newHealth) {
       health = newHealth;
     }
+    public float GetBasicDMG() {
+      return basicDamage;
+    }
+    public void SetBasicDMG(float newBasicDMG) {
+      basicDamage = newBasicDMG;
+    }
+    public float GetBasicSpeed() {
+      return basicSpeed;
+    }
+    public void SetBasicSpeed(float newBasicSpeed) {
+      basicSpeed = newBasicSpeed;
+    }
 }
