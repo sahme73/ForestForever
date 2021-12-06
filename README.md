@@ -32,6 +32,9 @@
       </ul>
     </li>
     <li>
+    <a href="#features">Features</a>
+    </li>
+    <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
@@ -58,6 +61,19 @@ X is a top-down RPG style game which integrates an inventory/crafting system, mi
 
 * [Unity](https://unity.com/)
 * [NUnit](https://nunit.org/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- FEATURES -->
+## Features
+* GUI 
+    * Save/load/pause game
+    * Inventory
+    * Crafting
+* Death and respawn mechanics
+    * Combat w/enemies
+* Collision and lighting system
+* Health system w/regeneration
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
