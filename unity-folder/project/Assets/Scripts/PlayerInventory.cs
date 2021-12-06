@@ -154,6 +154,10 @@ public class PlayerInventory : MonoBehaviour, InventoryInterface
     return craftings;
   }
 
+  public bool Satisfied(string name, int count) {
+    return Satisfied(craftings[name]);
+  }
+
   //private helper functions
   private static string DictToString(Dictionary<string, int> dict){
     string toPrint = "";

@@ -53,6 +53,12 @@ public class FeedInvoker : MonoBehaviour {
     Invoke("LoggerPause", 1.0f);
   }
 
+  public void CannotCraftIndicator(string item) {
+    Logger.SetActive(true);
+    Logger.GetComponent<Text>().text = "Cannot craft " + item;
+    Invoke("LoggerPause", 1.0f);
+  }
+
   private void LoggerPause() {
       Logger.SetActive(false);
   }
