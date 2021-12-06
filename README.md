@@ -48,7 +48,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+![Screenshot](https://example.com)
 
 X is a top-down RPG style game which integrates an inventory/crafting system, mining, and enemies to provide a full game experience for users. Through a minimalistic UI, users can collect resources and craft them into tools to advance the game. The game also implements saving to allow for games to be saved and loaded at a later point in time.
 
@@ -57,8 +57,7 @@ X is a top-down RPG style game which integrates an inventory/crafting system, mi
 ### Built With
 
 * [Unity](https://unity.com/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
+* [NUnit](https://nunit.org/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -93,9 +92,7 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+"Put screenshots here"
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
