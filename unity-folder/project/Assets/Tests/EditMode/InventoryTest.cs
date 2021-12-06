@@ -117,7 +117,7 @@ public class Health
 
         Assert.AreEqual(
             temp1.GetComponent<PlayerInventory>().ToSaveHash(),
-            temp2.GetComponent<PlayerInventory>().ToSaveHash(),
+            temp2.GetComponent<PlayerInventory>().ToSaveHash()
         );
 
 
