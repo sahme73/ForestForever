@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/cs128-2021c/final-project-segfaultcoredumped">
-    <img src="./images/logo.png" alt="Logo" width="80" height="80">
+    <img src="./Images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">project_title</h3>
@@ -101,7 +101,7 @@ This is an example of how to list things you need to use the software and how to
 
 2. Add project on Unity Hub
 
-   ![Product Name Screen Shot](./images/unityHub.png)
+   ![Product Name Screen Shot](./Images/unityHub.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
