@@ -11,6 +11,7 @@ TagManager:
   - TreeOrigin
   - EnemyOrigin
   - OtherControls
+  - TreeYoung
   layers:
   - Default
   - TransparentFX
