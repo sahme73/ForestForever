@@ -8,6 +8,7 @@ public class PlayerActions : MonoBehaviour
 {
     public Collider2D player;
     public GameObject Logger;
+    public GameObject SwingHitbox;
 
     private bool showInventory = false;
 
@@ -18,14 +19,36 @@ public class PlayerActions : MonoBehaviour
     private void Update() {
         if (Input.GetKeyDown("e")) showInventory = !showInventory; // toggle inventory shown/hidden by clicking 'e'
 
-        if (Input.GetKeyDown("space") && !IsInvoking()) isSwinging = true; // swinging weapon in hand
+        if (Input.GetKeyDown("space") && !IsInvoking()) { 
+          isSwinging = true; // swinging weapon in hand
+          SwingHitbox.SetActive(true);
+        }
+
+        // plant tree
+        if (Input.GetKey("p") && GetComponent<PlayerInventory>().HasItem("Seed") && !IsInvoking("PlantCooldown")) {
+          GetComponent<PlayerInventory>().RemoveItem("Seed");
+          
+          GameObject treePrefab = GameObject.FindGameObjectWithTag("TreeOrigin");
+          GameObject clone = Instantiate(treePrefab, transform.position, Quaternion.identity) as GameObject;
+          clone.tag = "TreeParent";
+          TreeInterface treeI = clone.GetComponentInChildren<TreeInterface>();
+
+          treeI.SetPosition(transform.position);
+          treeI.SetHealth(0.1f);
+          treeI.SetAge(Age.Seedling);
+        
+          Invoke("PlantCooldown", 1.0f);
+        }
 
         if (isSwinging) Invoke("SwingCooldown", GetComponent<PlayerStats>().swingSpeed);
     }
 
     private void SwingCooldown() {
       isSwinging = false;
+      SwingHitbox.SetActive(false);
     }
+
+    private void PlantCooldown() {}
 
     private void OnTriggerStay2D(Collider2D other) {
       if (isSwinging) {

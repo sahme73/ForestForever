@@ -69,7 +69,20 @@ public class PlayerInventory : MonoBehaviour, InventoryInterface
   public void AddItem(string item){
     AddItem(item, 1);
   }
-  
+
+  public void RemoveItem(string item) {
+    if (!items.ContainsKey(item)) {
+    } else if (items[item] > 0) {
+      items[item] -= 1;
+    }
+  }
+
+  public bool HasItem(string item) {
+    if (!items.ContainsKey(item)) return false;
+    if (items[item] > 0) return true;
+    return false;
+  }
+
   public int GetCount(string item){
     if(!items.ContainsKey(item)){
       return 0;

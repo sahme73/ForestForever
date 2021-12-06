@@ -9,25 +9,42 @@ namespace TreeStats {
     public Text hpBar;
     public float currentHP;
     public Age currentAge;
+    public float growthSpeed = 0.2f;
 
     private void Update() {
       if (currentHP <= 0.0f) {
         Debug.Log(name + " died!");
         GameObject.Destroy(gameObject);
         GameObject.Destroy(hpBar);
+        GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerActions>().Logger.GetComponentInChildren<FeedInvoker>().ItemAddIndicator("Seed", 1);
+      }
+      if (currentAge == Age.Seedling && !IsInvoking()) {
+        Invoke("Grow", growthSpeed);
       }
       hpBar.text = currentHP.ToString();
     }
 
-    public int TakeDamage(float dmg) {
-      int output = 0;
-      if ((currentHP - dmg) > 0) {
-        output = (int)dmg;
+    private void Grow() {
+      if (currentHP >= 100.0f) {
+        currentHP = 100.0f;
+        currentAge = Age.Grown;
       } else {
-        output = (int)currentHP;
+        currentHP += 1.0f;
       }
-      currentHP -= dmg;
-      return output;
+    }
+
+    public int TakeDamage(float dmg) {
+      if (currentAge == Age.Grown) {
+        int output = 0;
+        if ((currentHP - dmg) > 0) {
+          output = (int)dmg;
+        } else {
+          output = (int)currentHP;
+        }
+        currentHP -= dmg;
+        return output;
+      }
+      return 0;
     }
 
     /////////////////////////////////////////////
