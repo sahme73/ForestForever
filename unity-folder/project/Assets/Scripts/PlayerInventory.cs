@@ -37,6 +37,10 @@ public class PlayerInventory : MonoBehaviour, InventoryInterface
     Dictionary<string, int>
   > ();
   
+  private void Start() {
+    AddDefaultCrafts();
+  }
+
   public void CraftingInventory(){
     AddDefaultCrafts();
   }
