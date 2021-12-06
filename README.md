@@ -61,6 +61,7 @@ X is a top-down RPG style game which integrates an inventory/crafting system, mi
 
 * [Unity](https://unity.com/)
 * [NUnit](https://nunit.org/)
+* [Background images by Rowdy41](https://rowdy41.itch.io/small-forest)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
