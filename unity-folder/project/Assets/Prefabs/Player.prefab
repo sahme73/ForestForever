@@ -169,6 +169,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setSpeed: 10
   setMaxHealth: 100
+  swingSpeed: 1
+  regenPerSecond: 1
+  damage: 5
 --- !u!114 &3203566134205408282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +210,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 3203566134205408276}
-  tree: {fileID: 0}
   Logger: {fileID: 0}
 --- !u!1 &3203566134789451921
 GameObject:
@@ -410,7 +412,7 @@ GameObject:
   - component: {fileID: 3203566136009318824}
   m_Layer: 0
   m_Name: OtherControls
-  m_TagString: Untagged
+  m_TagString: OtherControls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -19,8 +19,15 @@ namespace TreeStats {
       hpBar.text = currentHP.ToString();
     }
 
-    public void TakeDamage(float dmg) {
+    public int TakeDamage(float dmg) {
+      int output = 0;
+      if ((currentHP - dmg) > 0) {
+        output = (int)dmg;
+      } else {
+        output = (int)currentHP;
+      }
       currentHP -= dmg;
+      return output;
     }
 
     /////////////////////////////////////////////

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour, PlayerInterface
 {
+    public GameObject Logger;
     private float currentHealth = 0.0f;
     private float maxHealth = 100.0f;
 
@@ -36,6 +37,7 @@ public class PlayerStats : MonoBehaviour, PlayerInterface
 
     public void UpdateHealth(float mod) {
         currentHealth += mod;
+        Logger.GetComponent<FeedInvoker>().DamageTakenIndicator((int)mod);
         if (currentHealth > maxHealth) {
             currentHealth = maxHealth;
         } else if (currentHealth <= 0.0f) {

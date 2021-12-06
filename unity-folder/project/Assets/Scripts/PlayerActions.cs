@@ -30,31 +30,23 @@ public class PlayerActions : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other) {
       if (isSwinging) {
         if (other.gameObject.tag == "Tree") {
-          WoodCut();
-          other.gameObject.GetComponent<TreeScript>().TakeDamage(player.GetComponent<PlayerStats>().damage);
+          // tree takes damage and indicates how much wood the player should receive
+          int woodGained = other.gameObject.GetComponent<TreeScript>().TakeDamage(player.GetComponent<PlayerStats>().damage);
+          Logger.GetComponentInChildren<FeedInvoker>().WoodCutIndicator(woodGained);
+          GetComponent<PlayerInventory>().AddItem("Wood", woodGained);
           Debug.Log("Hit " + other.name + "!");
         }
         if (other.gameObject.tag == "Enemy") {
           other.gameObject.GetComponent<Enemy>().TakeDamage(player.GetComponent<PlayerStats>().damage);
+          Logger.GetComponent<FeedInvoker>().DamageDoneIndicator((int)GetComponent<PlayerStats>().damage);
           Debug.Log("Hit " + other.name + "!");
         }
         isSwinging = false;
       }
     }
 
-    public void WoodCut() {
-      Logger.SetActive(true);
-      Logger.GetComponent<Text>().text = "+1 Wood!";
-      player.GetComponent<PlayerInventory>().AddItem("Wood");
-      Invoke("LoggerPause", 1.0f);
-    }
-
-    private void LoggerPause() {
-        Logger.SetActive(false);
-    }
-
     void OnGUI() {
-        if (showInventory) {
+        if (showInventory && !(GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<GamePause>().PauseStatus())) {
             PlayerInventory inventory = player.GetComponent<PlayerInventory>();
             Dictionary<string, int> items = inventory.GetItems();
             //Debug.Log("Drawing inventory");

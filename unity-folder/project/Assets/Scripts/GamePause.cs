@@ -50,4 +50,8 @@ public class GamePause : MonoBehaviour
     public void QuitPress() {
         Application.Quit();
     }
+
+    public bool PauseStatus() {
+      return isPaused;
+    }
 }

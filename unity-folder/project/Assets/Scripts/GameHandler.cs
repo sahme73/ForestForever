@@ -15,10 +15,12 @@ public class GameHandler : MonoBehaviour {
 
   public void SavePress() {
     Save();
+    GameObject.FindGameObjectWithTag("OtherControls").GetComponent<GamePause>().ResumePress();
   }
 
   public void LoadPress() {
     Load();
+    GameObject.FindGameObjectWithTag("OtherControls").GetComponent<GamePause>().ResumePress();
   }
 
   private void Awake() {
@@ -60,15 +62,24 @@ public class GameHandler : MonoBehaviour {
     SaveEnemies();
 
     Debug.Log("Saved!");
+    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerActions>().Logger.GetComponent<FeedInvoker>().SaveIndicator();
   }
 
   private void Load() {
     Debug.Log("Loading Game...");
 
-    LoadPlayer();
+    bool isLoaded = LoadPlayer();
+
+    if (!isLoaded) {
+      GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerActions>().Logger.GetComponent<FeedInvoker>().BrokenSaveIndicator();
+      return;
+    }
+
     LoadTrees();
     LoadInventory();
     LoadEnemies();
+
+    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerActions>().Logger.GetComponent<FeedInvoker>().LoadIndicator();
   }
 
   private void SavePlayer() {
@@ -160,7 +171,7 @@ public class GameHandler : MonoBehaviour {
     SaveSystem.Save(enemiesJson, "save_enemies");
   }
 
-  private void LoadPlayer() {
+  private bool LoadPlayer() {
     string saveString = SaveSystem.Load("save_player");
     if (saveString != null) {
       SaveObjectPlayer saveObjectPlayer = JsonUtility.FromJson<SaveObjectPlayer>(saveString);
@@ -174,8 +185,10 @@ public class GameHandler : MonoBehaviour {
       player.SetDMG(saveObjectPlayer.playerDMG);
 
       Debug.Log("Player Save Loaded!");
+      return true;
     } else {
       Debug.Log("No Player Save Exists!");
+      return false;
     }
   }
 
@@ -203,7 +216,7 @@ public class GameHandler : MonoBehaviour {
 
         GameObject treePrefab = GameObject.FindGameObjectWithTag("TreeOrigin");
         GameObject clone = Instantiate(treePrefab, saveObjectTree.treePosition, Quaternion.identity) as GameObject;
-        clone.tag = "Tree";
+        clone.tag = "TreeParent";
         TreeInterface treeI = clone.GetComponentInChildren<TreeInterface>();
 
         treeI.SetPosition(saveObjectTree.treePosition);
