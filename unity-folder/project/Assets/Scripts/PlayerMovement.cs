@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour {
   // Public Variables:
   public Rigidbody2D player; // rigidbody for the current player object
   public bool isTesting = false; // for unit tests
+  public Animator animator;
 
   // Private Variables:
   private Vector2 movement; // the 2d vector of movement velocity (includes direction)
@@ -23,6 +24,9 @@ public class PlayerMovement : MonoBehaviour {
     if (!isTesting) {
       movement.x = Input.GetAxisRaw("Horizontal");
       movement.y = Input.GetAxisRaw("Vertical");
+
+      animator.SetFloat("Speed", movement.x);
+      animator.SetFloat("VerticalSpeed", Mathf.Abs(movement.y));
     }
   }
 

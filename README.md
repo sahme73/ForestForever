@@ -6,7 +6,7 @@
     <img src="./Images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Into The Forest</h3>
 
   <p align="center">
     Group: SegFaultCoreDumped
@@ -51,9 +51,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Screenshot](https://example.com)
+![Screenshot](./Images/startscreen.png)
 
-X is a top-down RPG style game which integrates an inventory/crafting system, mining, and enemies to provide a full game experience for users. Through a minimalistic UI, users can collect resources and craft them into tools to advance the game. The game also implements saving to allow for games to be saved and loaded at a later point in time.
+Into The Forest is a top-down RPG style game which integrates an inventory/crafting system, mining, and enemies to provide a full game experience for users. Through a minimalistic UI, users can collect resources and craft them into tools to advance the game. The game also implements saving to allow for games to be saved and loaded at a later point in time.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -108,8 +108,8 @@ This is an example of how to list things you need to use the software and how to
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
-"Put screenshots here"
+* Save Screen
+    ![Save Menu](./Images/saveScreen.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
