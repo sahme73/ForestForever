@@ -10,6 +10,17 @@ namespace TreeStats {
     public float currentHP;
     public Age currentAge;
     public float growthSpeed = 0.2f;
+    public SpriteRenderer grown;
+    public SpriteRenderer baby;
+    private Vector2 originalScale;
+    private Vector2 currScale;
+    private bool flag;
+
+    private void Start() {
+      currScale = originalScale = gameObject.GetComponent<RectTransform>().localScale;
+      if (currentAge == Age.Grown) flag = true;
+      else flag = false;
+    }
 
     private void Update() {
       if (currentHP <= 0.0f) {
@@ -18,6 +29,16 @@ namespace TreeStats {
         GameObject.Destroy(hpBar);
         GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerActions>().Logger.GetComponentInChildren<FeedInvoker>().ItemAddIndicator("Seed", 1);
       }
+      if (currentAge == Age.Seedling && !flag) {
+        
+          currScale.x /= 2.0f;
+          currScale.y /= 2.0f;
+          gameObject.GetComponent<RectTransform>().localScale = currScale;
+        
+        gameObject.GetComponent<SpriteRenderer>().sprite = baby.sprite;
+        gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+        flag = true;
+      }
       if (currentAge == Age.Seedling && !IsInvoking()) {
         Invoke("Grow", growthSpeed);
       }
@@ -25,9 +46,15 @@ namespace TreeStats {
     }
 
     private void Grow() {
-      if (currentHP >= 100.0f) {
+      if (currentHP == 0.1f) {
+        currentHP = 1.0f;
+      } else if (currentHP >= 100.0f) {
         currentHP = 100.0f;
         currentAge = Age.Grown;
+        gameObject.GetComponent<RectTransform>().localScale = originalScale;
+        currScale = originalScale;
+        gameObject.GetComponent<SpriteRenderer>().sprite = grown.sprite;
+        gameObject.GetComponent<PolygonCollider2D>().enabled = true;
       } else {
         currentHP += 1.0f;
       }

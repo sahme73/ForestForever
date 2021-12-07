@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour, EnemyInterface
         if (health <= 0.0f) {
             Debug.Log(name + " died!");
             GameObject.Destroy(gameObject);
+            GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerActions>().Logger.GetComponentInChildren<FeedInvoker>().ItemAddIndicator("Tinder", 1);
+            GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerActions>().Logger.GetComponentInChildren<FeedInvoker>().ItemAddIndicator("Seed", 1);
         }
         hpBar.text = health.ToString();
     }

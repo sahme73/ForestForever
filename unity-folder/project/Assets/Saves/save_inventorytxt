@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"keys":["Wood"],"vals":[300]}
-=======
-{"keys":["Wood","Seed"],"vals":[150,0]}
->>>>>>> 736a1a195f7411a3f376a004e92ef42dcb8a0104
+{"keys":["Wood","Small Torch","Tinder","Seed","Medium Torch","Tempered Wood"],"vals":[0,1,0,1,0,1]}

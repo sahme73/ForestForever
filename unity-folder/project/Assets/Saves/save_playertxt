@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"playerPosition":{"x":-10.128849983215332,"y":10.45580768585205},"playerSpeed":10.0,"playerMaxHealth":100.0,"playerCurrentHealth":100.0,"playerSwingSpeed":1.0,"playerRPS":1.0,"playerDMG":5.0}
-=======
-{"playerPosition":{"x":1.3567101955413819,"y":3.639585494995117},"playerSpeed":10.0,"playerMaxHealth":100.0,"playerCurrentHealth":100.0,"playerSwingSpeed":1.0,"playerRPS":1.0,"playerDMG":25.0}
->>>>>>> 736a1a195f7411a3f376a004e92ef42dcb8a0104
+{"playerPosition":{"x":-0.4354555010795593,"y":4.4442243576049809},"playerSpeed":10.0,"playerMaxHealth":100.0,"playerCurrentHealth":100.0,"playerSwingSpeed":1.0,"playerRPS":1.0,"playerDMG":5.0}

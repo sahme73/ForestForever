@@ -36,9 +36,14 @@ public class PlayerInventory : MonoBehaviour, InventoryInterface
     string, 
     Dictionary<string, int>
   > ();
-  
-  private void Start() {
-    AddDefaultCrafts();
+
+  private void Update() {
+    if (HasItem("Tinder (10)")) {
+      for (int i = 0; i < 10; i++) {
+        AddItem("Tinder");
+      }
+      items.Remove("Tinder (10)");
+    }
   }
 
   public void CraftingInventory(){
@@ -78,6 +83,7 @@ public class PlayerInventory : MonoBehaviour, InventoryInterface
     if (!items.ContainsKey(item)) {
     } else if (items[item] > 0) {
       items[item] -= 1;
+      if (items[item] == 0) items.Remove(item);
     }
   }
 
@@ -196,22 +202,27 @@ public class PlayerInventory : MonoBehaviour, InventoryInterface
     new Dictionary<string, int>(){
       {"Wood", 1}
     });
+    AddCrafting(
+    "Tinder (10)", 
+    new Dictionary<string, int>(){
+      {"Wood", 10}
+    });
     
     //campfires allow you to make different wood types
     AddCrafting(
-    "Small Campfire", 
+    "Small Torch", 
     new Dictionary<string, int>(){
       {"Tinder", 10},
       {"Wood", 10} 
     });
     AddCrafting(
-    "Medium Campfire", 
+    "Medium Torch", 
     new Dictionary<string, int>(){
       {"Tinder", 10},
       {"Wood", 100} 
     });
     AddCrafting(
-    "Large Campfire", 
+    "Large Torch", 
     new Dictionary<string, int>(){
       {"Tinder", 10},
       {"Wood", 500} 
@@ -221,19 +232,19 @@ public class PlayerInventory : MonoBehaviour, InventoryInterface
     AddCrafting(
     "Smoke-Treated Wood", 
     new Dictionary<string, int>(){
-      {"Small Campfire", 1},
+      {"Small Torch", 1},
       {"Wood", 10} 
     });
     AddCrafting(
     "Tempered Wood", 
     new Dictionary<string, int>(){
-      {"Medium Campfire", 1},
+      {"Medium Torch", 1},
       {"Wood", 50} 
     });
     AddCrafting(
     "Fire-Hardened Wood", 
     new Dictionary<string, int>(){
-      {"Large Campfire", 1},
+      {"Large Torch", 1},
       {"Wood", 100}
     });
     

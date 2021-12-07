@@ -12,8 +12,14 @@ public class FeedInvoker : MonoBehaviour {
 
   public void ItemAddIndicator(string item, int amount) {
     Logger.SetActive(true);
-    Logger.GetComponent<Text>().text = "+" + amount + " " + item + "!";
+    Logger.GetComponent<Text>().text = "+" + amount + " " + item + " added!";
     GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerInventory>().AddItem(item, amount);
+    Invoke("LoggerPause", 1.0f);
+  }
+
+  public void ItemCraftIndicator(string item, int amount) {
+    Logger.SetActive(true);
+    Logger.GetComponent<Text>().text = "+" + amount + " " + item + " crafted!";
     Invoke("LoggerPause", 1.0f);
   }
 

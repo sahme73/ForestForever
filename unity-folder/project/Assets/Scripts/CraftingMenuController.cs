@@ -43,9 +43,10 @@ public class CraftingMenuController : MonoBehaviour
     void DropdownValueChanged(Dropdown drop) {
         if (drop.value > 0)
             btn.GetComponent<Button>().gameObject.SetActive(true);
-        Debug.Log(drop.value);
+      ////Debug.Log(drop.value);
         //PlayerInventory inventory = player.GetComponent<PlayerInventory>();
         lastSelected = dropdown.options[drop.value].text;
+        btn.GetComponentInChildren<Text>().text = "Craft " + lastSelected;
         if (!inventory.Satisfied(lastSelected, 1)) btn.GetComponentInChildren<Text>().color = Color.red;
         else btn.GetComponentInChildren<Text>().color = Color.black;
     }
@@ -54,7 +55,7 @@ public class CraftingMenuController : MonoBehaviour
         bool success = inventory.Craft(lastSelected);
         FeedInvoker feed = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerActions>().Logger.GetComponentInChildren<FeedInvoker>();
         if (success) 
-            feed.ItemAddIndicator(lastSelected, 1);
+            feed.ItemCraftIndicator(lastSelected, 1);
         else
             feed.CannotCraftIndicator(lastSelected);
         btn.GetComponent<Button>().gameObject.SetActive(false);
