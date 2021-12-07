@@ -6,46 +6,95 @@ using UnityEngine.TestTools;
 
 public class IsMoving
 {
-  // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-  // `yield return null;` to skip a frame.
+  private GameObject testObject;
+
+  [SetUp]
+  public void Setup() {
+    // Instantiate test object at origin without gravity.
+    testObject = GameObject.Instantiate(new GameObject());
+    testObject.AddComponent<PlayerMovement>();
+    testObject.AddComponent<PlayerStats>();
+    testObject.AddComponent<Rigidbody2D>();
+    testObject.GetComponent<Rigidbody2D>().transform.position = Vector3.zero;
+    testObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+    testObject.GetComponent<PlayerMovement>().isTesting = true;
+  }
   
   [UnityTest]
   public IEnumerator MoveUp() {
-    // Use the Assert class to test conditions.
+    
+    // Movement direction set.
+    testObject.GetComponent<PlayerMovement>().SetMovement(0.0f, 1.0f);
 
-    // Use yield to skip a frame.
-    yield return 1;
+    // Use yield to progress time.
+    yield return new WaitForSeconds(5.0f);
 
-    Assert.AreEqual(new Vector2(0, 0), new Vector2(0, 0));
+    int xPositionRounded = Mathf.RoundToInt(testObject.GetComponent<PlayerMovement>().player.position.x);
+    int yPositionRounded = Mathf.RoundToInt(testObject.GetComponent<PlayerMovement>().player.position.y);
+
+    // Assert that the object's position moved properly.
+    Assert.AreEqual(xPositionRounded, 0);
+    Assert.AreEqual(yPositionRounded, 50);
+
   }
 
   [UnityTest]
   public IEnumerator MoveDown() {
-    // Use the Assert class to test conditions.
 
-    // Use yield to skip a frame.
-    yield return 1;
+    // Movement direction set.
+    testObject.GetComponent<PlayerMovement>().SetMovement(0.0f, -1.0f);
 
-    Assert.AreEqual(new Vector2(0, 0), new Vector2(0, 0));
+    // Use yield to progress time.
+    yield return new WaitForSeconds(5.0f);
+
+    int xPositionRounded = Mathf.RoundToInt(testObject.GetComponent<PlayerMovement>().player.position.x);
+    int yPositionRounded = Mathf.RoundToInt(testObject.GetComponent<PlayerMovement>().player.position.y);
+
+    // Assert that the object's position moved properly.
+    Assert.AreEqual(xPositionRounded, 0);
+    Assert.AreEqual(yPositionRounded, -50);
+
   }
 
   [UnityTest]
   public IEnumerator MoveRight() {
-    // Use the Assert class to test conditions.
+    
+    // Movement direction set.
+    testObject.GetComponent<PlayerMovement>().SetMovement(1.0f, 0.0f);
 
-    // Use yield to skip a frame.
-    yield return 1;
+    // Use yield to progress time.
+    yield return new WaitForSeconds(5.0f);
 
-    Assert.AreEqual(new Vector2(0, 0), new Vector2(0, 0));
+    int xPositionRounded = Mathf.RoundToInt(testObject.GetComponent<PlayerMovement>().player.position.x);
+    int yPositionRounded = Mathf.RoundToInt(testObject.GetComponent<PlayerMovement>().player.position.y);
+
+    // Assert that the object's position moved properly.
+    Assert.AreEqual(xPositionRounded, 50);
+    Assert.AreEqual(yPositionRounded, 0);
+
   }
 
   [UnityTest]
   public IEnumerator MoveLeft() {
-    // Use the Assert class to test conditions.
+    
+    // Movement direction set.
+    testObject.GetComponent<PlayerMovement>().SetMovement(-1.0f, 0.0f);
 
-    // Use yield to skip a frame.
-    yield return 1;
+    // Use yield to progress time.
+    yield return new WaitForSeconds(5.0f);
 
-    Assert.AreEqual(new Vector2(0, 0), new Vector2(0, 0));
+    int xPositionRounded = Mathf.RoundToInt(testObject.GetComponent<PlayerMovement>().player.position.x);
+    int yPositionRounded = Mathf.RoundToInt(testObject.GetComponent<PlayerMovement>().player.position.y);
+
+    // Assert that the object's position moved properly.
+    Assert.AreEqual(xPositionRounded, -50);
+    Assert.AreEqual(yPositionRounded, 0);
+
   }
+
+  [TearDown]
+  public void TearDown() {
+    GameObject.Destroy(testObject);
+  }
+
 }

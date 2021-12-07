@@ -14,13 +14,16 @@ public class GamePause : MonoBehaviour
     }
 
     private void Update() {
+        GameObject crafting = GameObject.FindGameObjectWithTag("Crafting");
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (isPaused) {
                 ResumeGame();
+                crafting.SetActive(true);
                 Menu.SetActive(false);
                 isPaused = false;
             } else {
                 PauseGame();
+                crafting.SetActive(false);
                 Menu.SetActive(true);
                 isPaused = true;
             }

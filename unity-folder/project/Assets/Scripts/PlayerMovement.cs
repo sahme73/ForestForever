@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
   // Public Variables:
   public Rigidbody2D player; // rigidbody for the current player object
+  public bool isTesting = false; // for unit tests
 
   // Private Variables:
   private Vector2 movement; // the 2d vector of movement velocity (includes direction)
@@ -19,8 +20,10 @@ public class PlayerMovement : MonoBehaviour {
   // Update is called once per frame | Input handler
   private void Update() {
     // Updated Approach //
-    movement.x = Input.GetAxisRaw("Horizontal");
-    movement.y = Input.GetAxisRaw("Vertical");
+    if (!isTesting) {
+      movement.x = Input.GetAxisRaw("Horizontal");
+      movement.y = Input.GetAxisRaw("Vertical");
+    }
   }
 
   // Update is called 50 times per second | Physics handler

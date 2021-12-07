@@ -35,7 +35,9 @@ public class Inventory
         temp.GetComponent<PlayerInventory>().AddItem("Wood", 10);
         temp.GetComponent<PlayerInventory>().AddItem("Tinder", 10);
 
-        Assert.IsTrue(temp.GetComponent<PlayerInventory>().Craft("Small Campfire"));
+        temp.GetComponent<PlayerInventory>().CraftingInventory();
+
+        Assert.IsTrue(temp.GetComponent<PlayerInventory>().Craft("Small Torch"));
 
 
         Assert.AreEqual(
@@ -47,7 +49,7 @@ public class Inventory
             0);
 
         Assert.AreEqual(
-            temp.GetComponent<PlayerInventory>().GetCount("Small Campfire"), 
+            temp.GetComponent<PlayerInventory>().GetCount("Small Torch"), 
             1);
 
         // destroy dummy object:
@@ -142,11 +144,11 @@ public class Inventory
 
     [Test]
     public void SaveHashWrong() {
-        GameObject temp = new GameObject("temp");
-        temp.AddComponent<PlayerInventory>();
+        GameObject temp1 = new GameObject("temp");
+        temp1.AddComponent<PlayerInventory>();
 
-        temp.GetComponent<PlayerInventory>().AddItem("ABCDE", 5);
-        temp.GetComponent<PlayerInventory>().AddItem("BXXXx", 5);
+        temp1.GetComponent<PlayerInventory>().AddItem("ABCDE", 5);
+        temp1.GetComponent<PlayerInventory>().AddItem("BXXXx", 5);
 
         GameObject temp2 = new GameObject("temp");
         temp2.AddComponent<PlayerInventory>();
@@ -161,6 +163,6 @@ public class Inventory
 
 
         // destroy dummy object:
-        GameObject.DestroyImmediate(temp);
+        GameObject.DestroyImmediate(temp1);
     }
 }

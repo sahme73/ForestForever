@@ -37,7 +37,8 @@ public class PlayerStats : MonoBehaviour, PlayerInterface
 
     public void UpdateHealth(float mod) {
         currentHealth += mod;
-        Logger.GetComponent<FeedInvoker>().DamageTakenIndicator((int)mod);
+        if (Logger != null)
+            Logger.GetComponent<FeedInvoker>().DamageTakenIndicator((int)mod);
         if (currentHealth > maxHealth) {
             currentHealth = maxHealth;
         } else if (currentHealth <= 0.0f) {

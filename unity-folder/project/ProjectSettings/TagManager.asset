@@ -12,6 +12,7 @@ TagManager:
   - EnemyOrigin
   - OtherControls
   - TreeYoung
+  - Crafting
   layers:
   - Default
   - TransparentFX
