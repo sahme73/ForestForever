@@ -1,34 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<test-run id="2" testcasecount="6" result="Passed" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2021-11-19 07:27:11Z" end-time="2021-11-19 07:27:11Z" duration="0.0455836">
-  <test-suite type="TestSuite" id="1013" name="final_project" fullname="final_project" runstate="Runnable" testcasecount="6" result="Passed" start-time="2021-11-19 07:27:11Z" end-time="2021-11-19 07:27:11Z" duration="0.045584" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+<test-run id="2" testcasecount="13" result="Passed" total="13" passed="13" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.0626976">
+  <test-suite type="TestSuite" id="1021" name="final_project" fullname="final_project" runstate="Runnable" testcasecount="13" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.062698" total="13" passed="13" failed="0" inconclusive="0" skipped="0" asserts="0">
     <properties />
-    <test-suite type="Assembly" id="1022" name="EditMode.dll" fullname="C:/Users/safeer/cs128env/src/fp/final-project-segfaultcoredumped/unity-folder/project/Library/ScriptAssemblies/EditMode.dll" runstate="Runnable" testcasecount="6" result="Passed" start-time="2021-11-19 07:27:11Z" end-time="2021-11-19 07:27:11Z" duration="0.032547" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <test-suite type="Assembly" id="1038" name="EditMode.dll" fullname="C:/Users/safeer/cs128env/src/fp/final-project-segfaultcoredumped/unity-folder/project/Library/ScriptAssemblies/EditMode.dll" runstate="Runnable" testcasecount="13" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.049746" total="13" passed="13" failed="0" inconclusive="0" skipped="0" asserts="0">
       <properties>
-        <property name="_PID" value="20104" />
+        <property name="_PID" value="10508" />
         <property name="_APPDOMAIN" value="Unity Child Domain" />
         <property name="platform" value="EditMode" />
       </properties>
-      <test-suite type="TestFixture" id="1014" name="Health" fullname="Health" classname="Health" runstate="Runnable" testcasecount="2" result="Passed" start-time="2021-11-19 07:27:11Z" end-time="2021-11-19 07:27:11Z" duration="0.026572" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1022" name="Health" fullname="Health" classname="Health" runstate="Runnable" testcasecount="2" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.030787" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1015" name="BasicAttack" fullname="Health.BasicAttack" methodname="BasicAttack" classname="Health" runstate="Runnable" seed="1859561955" result="Passed" start-time="2021-11-19 07:27:11Z" end-time="2021-11-19 07:27:11Z" duration="0.014228" asserts="0">
+        <test-case id="1023" name="BasicAttack" fullname="Health.BasicAttack" methodname="BasicAttack" classname="Health" runstate="Runnable" seed="331359487" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.016153" asserts="0">
           <properties />
         </test-case>
-        <test-case id="1016" name="OverMaxHealth" fullname="Health.OverMaxHealth" methodname="OverMaxHealth" classname="Health" runstate="Runnable" seed="1485793904" result="Passed" start-time="2021-11-19 07:27:11Z" end-time="2021-11-19 07:27:11Z" duration="0.000616" asserts="0">
+        <test-case id="1024" name="OverMaxHealth" fullname="Health.OverMaxHealth" methodname="OverMaxHealth" classname="Health" runstate="Runnable" seed="903423299" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.000674" asserts="0">
           <properties />
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1017" name="MovementTest" fullname="MovementTest" classname="MovementTest" runstate="Runnable" testcasecount="4" result="Passed" start-time="2021-11-19 07:27:11Z" end-time="2021-11-19 07:27:11Z" duration="0.004688" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1025" name="Inventory" fullname="Inventory" classname="Inventory" runstate="Runnable" testcasecount="7" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.010952" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1019" name="DownwardChange" fullname="MovementTest.DownwardChange" methodname="DownwardChange" classname="MovementTest" runstate="Runnable" seed="177781811" result="Passed" start-time="2021-11-19 07:27:11Z" end-time="2021-11-19 07:27:11Z" duration="0.001845" asserts="0">
+        <test-case id="1026" name="AddBasicItem" fullname="Inventory.AddBasicItem" methodname="AddBasicItem" classname="Inventory" runstate="Runnable" seed="1968662172" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.001729" asserts="0">
           <properties />
         </test-case>
-        <test-case id="1021" name="LeftwardChange" fullname="MovementTest.LeftwardChange" methodname="LeftwardChange" classname="MovementTest" runstate="Runnable" seed="1445903644" result="Passed" start-time="2021-11-19 07:27:11Z" end-time="2021-11-19 07:27:11Z" duration="0.000617" asserts="0">
+        <test-case id="1029" name="AddCraft" fullname="Inventory.AddCraft" methodname="AddCraft" classname="Inventory" runstate="Runnable" seed="1039607988" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.001739" asserts="0">
           <properties />
         </test-case>
-        <test-case id="1020" name="RightwardChange" fullname="MovementTest.RightwardChange" methodname="RightwardChange" classname="MovementTest" runstate="Runnable" seed="755951557" result="Passed" start-time="2021-11-19 07:27:11Z" end-time="2021-11-19 07:27:11Z" duration="0.000564" asserts="0">
+        <test-case id="1031" name="SaveHash" fullname="Inventory.SaveHash" methodname="SaveHash" classname="Inventory" runstate="Runnable" seed="1535308061" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.001173" asserts="0">
           <properties />
         </test-case>
-        <test-case id="1018" name="UpwardChange" fullname="MovementTest.UpwardChange" methodname="UpwardChange" classname="MovementTest" runstate="Runnable" seed="1739381359" result="Passed" start-time="2021-11-19 07:27:11Z" end-time="2021-11-19 07:27:11Z" duration="0.000547" asserts="0">
+        <test-case id="1032" name="SaveHashWrong" fullname="Inventory.SaveHashWrong" methodname="SaveHashWrong" classname="Inventory" runstate="Runnable" seed="1244200734" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.002374" asserts="0">
+          <properties />
+        </test-case>
+        <test-case id="1027" name="SucessfulCraft" fullname="Inventory.SucessfulCraft" methodname="SucessfulCraft" classname="Inventory" runstate="Runnable" seed="511501835" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.001228" asserts="0">
+          <properties />
+        </test-case>
+        <test-case id="1030" name="UnknownItemDefault" fullname="Inventory.UnknownItemDefault" methodname="UnknownItemDefault" classname="Inventory" runstate="Runnable" seed="1210509866" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.000509" asserts="0">
+          <properties />
+        </test-case>
+        <test-case id="1028" name="UnsucessfulCraft" fullname="Inventory.UnsucessfulCraft" methodname="UnsucessfulCraft" classname="Inventory" runstate="Runnable" seed="2085483520" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.000525" asserts="0">
+          <properties />
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1033" name="MovementTest" fullname="MovementTest" classname="MovementTest" runstate="Runnable" testcasecount="4" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.005698" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1035" name="DownwardChange" fullname="MovementTest.DownwardChange" methodname="DownwardChange" classname="MovementTest" runstate="Runnable" seed="729899952" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.002296" asserts="0">
+          <properties />
+        </test-case>
+        <test-case id="1037" name="LeftwardChange" fullname="MovementTest.LeftwardChange" methodname="LeftwardChange" classname="MovementTest" runstate="Runnable" seed="979041295" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.000731" asserts="0">
+          <properties />
+        </test-case>
+        <test-case id="1036" name="RightwardChange" fullname="MovementTest.RightwardChange" methodname="RightwardChange" classname="MovementTest" runstate="Runnable" seed="1955596549" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.000758" asserts="0">
+          <properties />
+        </test-case>
+        <test-case id="1034" name="UpwardChange" fullname="MovementTest.UpwardChange" methodname="UpwardChange" classname="MovementTest" runstate="Runnable" seed="355644437" result="Passed" start-time="2021-12-07 07:19:12Z" end-time="2021-12-07 07:19:12Z" duration="0.000765" asserts="0">
           <properties />
         </test-case>
       </test-suite>
