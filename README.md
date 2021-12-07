@@ -125,7 +125,7 @@ This is an example of how to list things you need to use the software and how to
 * [] Multiple levels
 * [] Various types of attacks
 
-See the [open issues](https://github.com/cs128-2021c/final-project-segfaultcoredumped/issues) for a full list of proposed features/issues.
+See the [closed issues](https://github.com/cs128-2021c/final-project-segfaultcoredumped/issues?q=is%3Aissue+is%3Aclosed) for a full list of proposed features/issues.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
