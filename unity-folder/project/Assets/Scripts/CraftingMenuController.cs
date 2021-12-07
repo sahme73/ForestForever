@@ -9,13 +9,17 @@ public class CraftingMenuController : MonoBehaviour
     public Collider2D player;
     private PlayerInventory inventory;
     public Button btn;
+    public GameObject menu;
+    public Text recipe;
     private string lastSelected; 
     // Start is called before the first frame update
     void Start()
     {
         lastSelected = "null";
+        menu.GetComponent<Image>().color = new Color(41, 95, 145, 0f);
         btn.GetComponentInChildren<Text>().text = "Craft";
         btn.GetComponent<Button>().gameObject.SetActive(false);
+        recipe.GetComponent<Text>().gameObject.SetActive(false);
         btn.onClick.AddListener(craftClicked);
         inventory = player.GetComponent<PlayerInventory>();
         dropdown.ClearOptions();
@@ -41,11 +45,23 @@ public class CraftingMenuController : MonoBehaviour
     }
 
     void DropdownValueChanged(Dropdown drop) {
-        if (drop.value > 0)
-            btn.GetComponent<Button>().gameObject.SetActive(true);
-      ////Debug.Log(drop.value);
-        //PlayerInventory inventory = player.GetComponent<PlayerInventory>();
         lastSelected = dropdown.options[drop.value].text;
+        if (drop.value > 0) {
+            btn.GetComponent<Button>().gameObject.SetActive(true);
+            recipe.GetComponent<Text>().gameObject.SetActive(true);
+            menu.GetComponent<Image>().color = new Color(41, 95, 145, 0.8f);
+            Dictionary<string, Dictionary<string, int>> craftables = inventory.GetCraftings();
+            Dictionary<string, int> reqs = craftables[lastSelected];
+            string recipeText = "Recipe:\n";
+            foreach (var req in reqs) {
+                recipeText += req.Key;
+                recipeText += "   " + req.Value.ToString();
+                recipeText += "\n";
+            }
+            recipe.text = recipeText;
+        }
+        //Debug.Log(drop.value);
+        //PlayerInventory inventory = player.GetComponent<PlayerInventory>();
         btn.GetComponentInChildren<Text>().text = "Craft " + lastSelected;
         if (!inventory.Satisfied(lastSelected, 1)) btn.GetComponentInChildren<Text>().color = Color.red;
         else btn.GetComponentInChildren<Text>().color = Color.black;
@@ -59,5 +75,7 @@ public class CraftingMenuController : MonoBehaviour
         else
             feed.CannotCraftIndicator(lastSelected);
         btn.GetComponent<Button>().gameObject.SetActive(false);
+        recipe.GetComponent<Text>().gameObject.SetActive(false);
+        menu.GetComponent<Image>().color = new Color(41, 95, 145, 0f);
     }
 }
