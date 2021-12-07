@@ -11,10 +11,9 @@
   <p align="center">
     Group: SegFaultCoreDumped
     <br />
-    <a href="https://github.com/cs128-2021c/final-project-segfaultcoredumped"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/cs128-2021c/final-project-segfaultcoredumped/releases"><strong>Release Binaries »</strong></a>
     <br />
     <br />
-    ·
     <a href="https://github.com/cs128-2021c/final-project-segfaultcoredumped/issues">Report Bug</a>
     ·
     <a href="https://github.com/cs128-2021c/final-project-segfaultcoredumped/issues">Request Feature</a>
