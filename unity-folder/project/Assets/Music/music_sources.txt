@@ -1,0 +1,3 @@
+*** All music/sounds used within the game have CC-BY 4.0 Licensing https://creativecommons.org/licenses/by/4.0/ ***
+
+ghost_town.mp3: https://opengameart.org/content/ghost-town
