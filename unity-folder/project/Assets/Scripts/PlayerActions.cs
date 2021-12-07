@@ -74,7 +74,7 @@ public class PlayerActions : MonoBehaviour
             Dictionary<string, int> items = inventory.GetItems();
             //Debug.Log("Drawing inventory");
             float yVal = (Screen.height / 2) - 150;
-            GUI.Box(new Rect((Screen.width / 2) - 35, yVal, 75, 20 + (30*items.Count)), "Inventory");
+            GUI.Box(new Rect((Screen.width / 2) - 35, yVal, 75, 20 + (30*items.Count)), "   Inventory   ");
             foreach(var item in items) {
                 yVal += 30;
                 //Debug.Log("Drawing " + item.Key + " : " + item.Value);

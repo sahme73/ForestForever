@@ -1,10 +1,11 @@
 using NUnit.Framework;
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
-// Test the health of the the player under different situations
+// Test the inventory of the the player under different situations
 
-public class Health
+public class Inventory
 {
     [Test]
     public void AddBasicItem() {
@@ -34,7 +35,7 @@ public class Health
         temp.GetComponent<PlayerInventory>().AddItem("Wood", 10);
         temp.GetComponent<PlayerInventory>().AddItem("Tinder", 10);
 
-        Assert.IsTrue(GetComponent<PlayerInventory>().Craft("Small Campfire"));
+        Assert.IsTrue(temp.GetComponent<PlayerInventory>().Craft("Small Campfire"));
 
 
         Assert.AreEqual(
@@ -116,11 +117,11 @@ public class Health
 
     [Test]
     public void SaveHash() {
-        GameObject temp = new GameObject("temp");
-        temp.AddComponent<PlayerInventory>();
+        GameObject temp1 = new GameObject("temp");
+        temp1.AddComponent<PlayerInventory>();
 
-        temp.GetComponent<PlayerInventory>().AddItem("ABCDE", 5);
-        temp.GetComponent<PlayerInventory>().AddItem("BXXXX", 5);
+        temp1.GetComponent<PlayerInventory>().AddItem("ABCDE", 5);
+        temp1.GetComponent<PlayerInventory>().AddItem("BXXXX", 5);
 
         GameObject temp2 = new GameObject("temp");
         temp2.AddComponent<PlayerInventory>();
@@ -135,7 +136,8 @@ public class Health
 
 
         // destroy dummy object:
-        GameObject.DestroyImmediate(temp);
+        GameObject.DestroyImmediate(temp1);
+        GameObject.DestroyImmediate(temp2);
     }
 
     [Test]
