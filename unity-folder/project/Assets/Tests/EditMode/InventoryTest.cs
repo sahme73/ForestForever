@@ -102,6 +102,19 @@ public class Health
     }
 
     [Test]
+    public void UnknownItemDefault() {
+        GameObject temp = new GameObject("temp");
+        temp.AddComponent<PlayerInventory>();
+
+        Assert.AreEqual(
+            temp.GetComponent<PlayerInventory>().GetCount("TEST"), 
+            0);
+
+        // destroy dummy object:
+        GameObject.DestroyImmediate(temp);
+    }
+
+    [Test]
     public void SaveHash() {
         GameObject temp = new GameObject("temp");
         temp.AddComponent<PlayerInventory>();
@@ -116,6 +129,30 @@ public class Health
         temp2.GetComponent<PlayerInventory>().AddItem("BXXXX", 5);
 
         Assert.AreEqual(
+            temp1.GetComponent<PlayerInventory>().ToSaveHash(),
+            temp2.GetComponent<PlayerInventory>().ToSaveHash()
+        );
+
+
+        // destroy dummy object:
+        GameObject.DestroyImmediate(temp);
+    }
+
+    [Test]
+    public void SaveHashWrong() {
+        GameObject temp = new GameObject("temp");
+        temp.AddComponent<PlayerInventory>();
+
+        temp.GetComponent<PlayerInventory>().AddItem("ABCDE", 5);
+        temp.GetComponent<PlayerInventory>().AddItem("BXXXx", 5);
+
+        GameObject temp2 = new GameObject("temp");
+        temp2.AddComponent<PlayerInventory>();
+
+        temp2.GetComponent<PlayerInventory>().AddItem("ABCDE", 5);
+        temp2.GetComponent<PlayerInventory>().AddItem("BXXXX", 5);
+
+        Assert.AreNotEqual(
             temp1.GetComponent<PlayerInventory>().ToSaveHash(),
             temp2.GetComponent<PlayerInventory>().ToSaveHash()
         );
