@@ -15,12 +15,16 @@ public class GameHandler : MonoBehaviour {
 
   public void SavePress() {
     Save();
-    GameObject.FindGameObjectWithTag("OtherControls").GetComponent<GamePause>().ResumePress();
+    try {
+      GameObject.FindGameObjectWithTag("OtherControls").GetComponent<GamePause>().ResumePress();   
+    } catch (System.Exception){}
   }
 
   public void LoadPress() {
     Load();
-    GameObject.FindGameObjectWithTag("OtherControls").GetComponent<GamePause>().ResumePress();
+    try {
+      GameObject.FindGameObjectWithTag("OtherControls").GetComponent<GamePause>().ResumePress();   
+    } catch (System.Exception){}
   }
 
   private void Awake() {

@@ -6,6 +6,7 @@ public class GamePause : MonoBehaviour
 {
     public GameObject Menu;
     public GameObject Logger;
+    public GameObject Crafting;
     private bool isPaused = false;
 
     private void Start() {
@@ -14,16 +15,15 @@ public class GamePause : MonoBehaviour
     }
 
     private void Update() {
-        GameObject crafting = GameObject.FindGameObjectWithTag("Crafting");
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (isPaused) {
                 ResumeGame();
-                crafting.SetActive(true);
+                Crafting.SetActive(true);
                 Menu.SetActive(false);
                 isPaused = false;
             } else {
                 PauseGame();
-                crafting.SetActive(false);
+                Crafting.SetActive(false);
                 Menu.SetActive(true);
                 isPaused = true;
             }
