@@ -42,7 +42,8 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#build-creation-overview">Build Creation</a></li>
+    <li><a href="#unit-testing-overview">Unit Testing</a></li>
     <li><a href="#contributors">Contributors</a></li>
   </ol>
 </details>
@@ -93,13 +94,13 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Clone the repo
+1. Clone the repository.
 
    ```sh
    git clone https://github.com/cs128-2021c/final-project-segfaultcoredumped
    ```
 
-2. Add project on Unity Hub
+2. Add project on Unity Hub by clicking open and select the "final-project-segfaultcoredumped\unity-folder\project" folder.
 
    ![Product Name Screen Shot](./Images/unityHub.png)
 
@@ -125,6 +126,17 @@ This is an example of how to list things you need to use the software and how to
 * [] Various types of attacks
 
 See the [open issues](https://github.com/cs128-2021c/final-project-segfaultcoredumped/issues) for a full list of proposed features/issues.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- Build Creation Overview -->
+## Build Creation Overview
+
+### Notice:
+Under releases on the right within this GitHub repository, there is a build which we compiled into an executable and uploaded as a .zip file. It is recommended to use this build. To use the build v0.11, download the .zip file, unzip the file, and the executable file and game directories are all setup, ready to play!
+
+### Creation:
+To create a custom build of the project, open the project in the Unity editor. Then, double click the GameScene1.unity scene located in Assets>Scenes. Finally, press Control+Shift+B and then select desired build settings. For our project, we used default build settings and pressed "Build and Run".
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
