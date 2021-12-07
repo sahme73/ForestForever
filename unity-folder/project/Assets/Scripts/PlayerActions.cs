@@ -9,6 +9,7 @@ public class PlayerActions : MonoBehaviour
     public Collider2D player;
     public GameObject Logger;
     public GameObject SwingHitbox;
+    public GameObject InventoryMenu;
 
     private bool showInventory = false;
 
@@ -41,6 +42,19 @@ public class PlayerActions : MonoBehaviour
         }
 
         if (isSwinging) Invoke("SwingCooldown", GetComponent<PlayerStats>().swingSpeed);
+
+        if (showInventory && !(GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<GamePause>().PauseStatus())) {
+          PlayerInventory inventory = player.GetComponent<PlayerInventory>();
+          Dictionary<string, int> items = inventory.GetItems();
+          string inventoryString = "Inventory:\n";
+          foreach (var item in items) {
+            inventoryString += (item.Key + ": \t " + item.Value.ToString() + "\n");
+          }
+          InventoryMenu.GetComponentInChildren<Text>().text = inventoryString;
+          InventoryMenu.SetActive(true);
+        } else {
+          InventoryMenu.SetActive(false);
+        }
     }
 
     private void SwingCooldown() {
@@ -66,20 +80,5 @@ public class PlayerActions : MonoBehaviour
         }
         isSwinging = false;
       }
-    }
-
-    void OnGUI() {
-        if (showInventory && !(GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<GamePause>().PauseStatus())) {
-            PlayerInventory inventory = player.GetComponent<PlayerInventory>();
-            Dictionary<string, int> items = inventory.GetItems();
-            //Debug.Log("Drawing inventory");
-            float yVal = (Screen.height / 2) - 150;
-            GUI.Box(new Rect((Screen.width / 2) - 35, yVal, 75, 20 + (30*items.Count)), "   Inventory   ");
-            foreach(var item in items) {
-                yVal += 30;
-                //Debug.Log("Drawing " + item.Key + " : " + item.Value);
-                GUI.Label(new Rect((Screen.width / 2) - (item.Key.Length  * 6), yVal, 100, 20), item.Key + " : " + item.Value.ToString());
-            }
-        }
     }
 }
