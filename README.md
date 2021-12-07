@@ -51,7 +51,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Screenshot](./Images/startscreen.png)
+![Screenshot](./Images/startScreen.png)
 
 Forest Forever is a top-down RPG style game which integrates an inventory/crafting system, mining, and enemies to provide a full game experience for users. Through a minimalistic UI, users can collect resources and craft them into tools to advance the game. The game also implements saving to allow for games to be saved and loaded at a later point in time.
 
