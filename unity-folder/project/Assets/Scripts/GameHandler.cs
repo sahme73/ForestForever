@@ -133,16 +133,7 @@ public class GameHandler : MonoBehaviour {
   }
 
   private void SaveInventory() {
-    var keys = new List<string>(inventory.GetItems().Keys);
-    var vals = new List<int>(inventory.GetItems().Values);
-
-    SaveObjectInventory saveObjectInventory = new SaveObjectInventory {
-      keys = keys,
-      vals = vals
-    };
-    string inventoryJson = JsonUtility.ToJson(saveObjectInventory);
-
-    SaveSystem.Save(inventoryJson, "save_inventory");
+    SaveSystem.Save(inventory.ToSaveHash(), "save_inventory");
   }
 
   private void SaveEnemies() {
@@ -236,16 +227,14 @@ public class GameHandler : MonoBehaviour {
 
   private void LoadInventory() {
     string saveString = SaveSystem.Load("save_inventory");
-    SaveObjectInventory saveObjectInventory = JsonUtility.FromJson<SaveObjectInventory>(saveString);
+    Dictionary<string, int> saveObjectInventory = inventory.RestoreInventory(saveString);
 
     if (saveString != null) {
       //empty inventory
       inventory.EmptyInventory();
 
-      int inventorySize = saveObjectInventory.keys.Count;
-
-      for (int i = 0; i < inventorySize; i++) {
-        inventory.AddItem(saveObjectInventory.keys[i], saveObjectInventory.vals[i]);
+      foreach (var item in saveObjectInventory) {
+        inventory.AddItem(item.Key, item.Value);
       }
 
       Debug.Log("Inventory Save Loaded!");

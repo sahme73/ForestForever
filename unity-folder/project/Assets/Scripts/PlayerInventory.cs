@@ -143,6 +143,34 @@ public class PlayerInventory : MonoBehaviour, InventoryInterface
     }
   }
 
+  public Dictionary<string, int> RestoreInventory(string hash) {
+    Dictionary<string, int> items = new Dictionary<string, int>();
+    int next = hash.IndexOf(":");
+    int trueHashValue = Int32.Parse(hash.Substring(0, next));
+    hash = hash.Substring(next + 1);
+    int attempedHashValue = 0;
+    
+    while(hash.IndexOf(":") != -1){
+      next = hash.IndexOf(":");
+      string item = hash.Substring(0, next);
+      hash = hash.Substring(next + 1);
+      attempedHashValue = HashStringFunction(attempedHashValue, item);
+      
+      next = hash.IndexOf(":");
+      int number = Int32.Parse(hash.Substring(0, next));
+      hash = hash.Substring(next + 1);
+      attempedHashValue = HashFunction(attempedHashValue, number);
+      
+      items.Add(item, number);
+    }
+    
+    if(attempedHashValue != trueHashValue){
+      throw new ArgumentException("Invalid hash! ...Are you trying to cheat?...");
+    }
+
+    return items;
+  }
+
   //public crafting interface
   public void AddCrafting(string product, Dictionary<string, int> requirements){
     craftings[product] = requirements;
