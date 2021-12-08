@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class SaveSystem {
   private static readonly string SAVE_FOLDER = Application.dataPath + "/Saves/";
-  private const string SAVE_EXTENSION = "txt";
+  private const string SAVE_EXTENSION = ".txt";
 
   public static void Initialize() {
     // Check whether Save Folder already exists
