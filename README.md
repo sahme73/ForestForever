@@ -13,6 +13,8 @@
     <br />
     <a href="https://github.com/cs128-2021c/final-project-segfaultcoredumped/releases"><strong>Release Binaries »</strong></a>
     <br />
+    <a href="https://youtu.be/v5Afud78avo"><strong>Video Demo »</strong></a>
+    <br />
     <br />
     <a href="https://github.com/cs128-2021c/final-project-segfaultcoredumped/issues">Report Bug</a>
     ·
